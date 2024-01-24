@@ -10,3 +10,10 @@ type Netflix struct {
 	Movie   string             `json:"movie,omitempty"`
 	Watched bool               `json:"watched,omitempty"`
 }
+
+//// THIS WILL GO IN THUNDERSTORM JSON
+
+// {
+// 	"movie" : "Deadpool",
+// 	"watched": false
+// }

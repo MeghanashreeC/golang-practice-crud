@@ -143,6 +143,7 @@ func getAllMovies() []primitive.M {
 
 func GetMyAllMovies(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Allow-Control-Allow-Methods", "GET")
 
 	allMovies := getAllMovies()
 	json.NewEncoder(w).Encode(allMovies)
@@ -164,7 +165,7 @@ func CreateMovie(w http.ResponseWriter, r *http.Request) {
 func MarkAsWatched(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Allow-Control-Allow-Methods", "PUT")
-	// we need unique value of that movie.UniqueId comes from the variables of the URL.whenever we click on that it gives us the uniqueid
+	// we need unique value of that movie.UniqueId comes from the variables of the URL.Whenever we click on that it gives us the uniqueid
 	params := mux.Vars(r)
 	updateOneMovie(params["id"])
 	json.NewEncoder(w).Encode(params["id"])
