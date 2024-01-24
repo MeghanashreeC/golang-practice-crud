@@ -2,16 +2,23 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"math/big"
 	"math/rand"
-	"time"
 )
 
 func main() {
 	fmt.Println("Welcome to Switch case in Go")
 
-	rand.Seed(time.Now().UnixNano()) // whenever there is rand you must Seed it
-	diceNumber := rand.Intn(6) + 1
-	fmt.Println("Value of dice is: ", diceNumber)
+	// rand.Seed(time.Now().UnixNano()) // whenever there is rand you must Seed it
+	// diceNumber := rand.Intn(6) + 1
+	// fmt.Println("Value of dice is: ", diceNumber)
+
+	MyRandomNum, err := rand.Int(rand.Reader, big.NewInt(5)) // rand.Reader comes from crypto package only
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(MyRandomNum)
 
 	// switch
 

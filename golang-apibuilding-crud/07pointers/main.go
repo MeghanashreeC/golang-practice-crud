@@ -17,5 +17,5 @@ func main() {
 	*ptr = *ptr * 2 // * takes the actual value of ptr(myNumber)
 	// & takes the address of the ptr)(myNumber)
 
-	fmt.Println("New value is:", myNumber)
+	fmt.Println("New value is:", *ptr)
 }

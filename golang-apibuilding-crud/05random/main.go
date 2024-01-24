@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math/big"
 
 	// "math/rand"
@@ -24,7 +25,10 @@ func main() {
 
 	// random from crypto
 
-	MyRandomNum, _ := rand.Int(rand.Reader, big.NewInt(5)) // rand.Reader comes from crypto package only
+	MyRandomNum, err := rand.Int(rand.Reader, big.NewInt(5)) // rand.Reader comes from crypto package only
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(MyRandomNum)
 
 }
